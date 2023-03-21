@@ -69,17 +69,22 @@ and is wrapped around the whole page content, except for the footer in this exam
     <div class="w3-col l8 s12">
       <div class="grid-container">
       <!-- Blog entry -->
+      {% if det %}
+      {%for x in det%}
       <div class="grid-item">
       <div class="w3-container w3-white w3-margin w3-padding-large">
         <div class="w3-col 6 m9"><div class="card">
-          <img src="media/images/guy1.webp" alt="Avatar" style="width:100%">
+          <img src="{{x.image.url}}" alt="Avatar" style="width:100%">
           <div class="container">
-            <h4><b>John Doe</b></h4> 
-            <p>Architect & Engineer</p> 
+            <h4><b>{{x.name}}</b></h4> 
+            <p>{{x.caption}}</p> 
           </div>
         </div>
         </div>
-   
+        {% endfor %}
+        {% else %}
+                            <h3>no items</h3>
+   {% endif %}
 
       <div class="grid-item">
         <div class="w3-col 6 m9"><div class="card">
